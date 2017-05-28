@@ -342,7 +342,7 @@ public class MenuListActivity extends AppCompatActivity
 //                Toast.makeText(getApplicationContext(),String.valueOf(np.getValue()), Toast.LENGTH_LONG).show();
 
                 new Gateway().execute("http://192.168.100.104/shop-slim/api/order", String.valueOf(TableId), String.valueOf(itemId), amount);
-                d.dismiss();
+//                d.dismiss();
             }
         });
 
