@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.guide.shop.MenuListActivity"
+    tools:showIn="@layout/app_bar_menu_list">
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+
+  <NumberPicker
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:descendantFocusability="blocksDescendants"
+      android:id="@+id/numberPicker1">
+
+  </NumberPicker>
+
+ </LinearLayout>
+
+    <ListView
+
+        android:id="@+id/listview_items"
+        android:listSelector="@drawable/text_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+    </ListView>
+
+</LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
