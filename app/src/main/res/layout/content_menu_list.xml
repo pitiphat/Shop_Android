@@ -9,40 +9,53 @@
     tools:showIn="@layout/app_bar_menu_list">
 
 
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:orientation="horizontal">
-
-  <NumberPicker
-      android:layout_width="match_parent"
-      android:layout_height="60dp"
-      android:descendantFocusability="blocksDescendants"
-      android:id="@+id/numberPicker1">
-
-  </NumberPicker>
-
- </LinearLayout>
-
-    <ListView
-
-        android:id="@+id/listview_items"
-        android:listSelector="@drawable/text_line"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
-    </ListView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/nav1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="menu1"
+                android:textSize="20dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/nav2"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="เลือกโต๊ะ"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/nav3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="menu3"
+                android:layout_weight="1"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        <ListView
+
+            android:id="@+id/listview_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:listSelector="@drawable/text_line"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp"></ListView>
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

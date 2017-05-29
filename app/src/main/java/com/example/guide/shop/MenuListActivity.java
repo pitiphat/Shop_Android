@@ -34,6 +34,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static java.lang.Integer.valueOf;
+
 public class MenuListActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -84,19 +86,27 @@ public class MenuListActivity extends AppCompatActivity
         listview_items.setAdapter(listAdapter);
 
 
-        final NumberPicker numpk1 = (NumberPicker)findViewById(R.id.numberPicker1);
-        numpk1.setMaxValue(10);
-        numpk1.setMinValue(1);
-        numpk1.setWrapSelectorWheel(false);
-        TableId = numpk1.getValue();
-
-        numpk1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        View chooseTable = findViewById(R.id.nav2);
+        chooseTable.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                TableId = numpk1.getValue();
-//                Toast.makeText(MenuListActivity.this, "Your Selected : " + numpk1.getValue(), Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+                showDialogTable();
             }
         });
+
+//        final NumberPicker numpk1 = (NumberPicker)findViewById(R.id.numberPicker1);
+//        numpk1.setMaxValue(10);
+//        numpk1.setMinValue(1);
+//        numpk1.setWrapSelectorWheel(false);
+//        TableId = numpk1.getValue();
+//
+//        numpk1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+//            @Override
+//            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+//                TableId = numpk1.getValue();
+////                Toast.makeText(MenuListActivity.this, "Your Selected : " + numpk1.getValue(), Toast.LENGTH_LONG).show();
+//            }
+//        });
 
     }
 
@@ -284,7 +294,7 @@ public class MenuListActivity extends AppCompatActivity
 //                        Log.d("BTN_CHOODE", "BTN_CHOODE : " + itemId);
 
 
-                        show();
+                        showDialogAmount();
                     }
                 });
 
@@ -318,7 +328,7 @@ public class MenuListActivity extends AppCompatActivity
         TextView txt_description;
         TextView chooseItem;
     }
-    public void show()
+    public void showDialogAmount()
     {
 
 
@@ -342,7 +352,47 @@ public class MenuListActivity extends AppCompatActivity
 //                Toast.makeText(getApplicationContext(),String.valueOf(np.getValue()), Toast.LENGTH_LONG).show();
 
                 new Gateway().execute("http://192.168.100.104/shop-slim/api/order", String.valueOf(TableId), String.valueOf(itemId), amount);
-//                d.dismiss();
+                d.dismiss();
+            }
+        });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.dismiss();
+            }
+        });
+
+
+        d.show();
+
+
+    }
+
+    public void showDialogTable()
+    {
+
+
+        final Dialog d = new Dialog(MenuListActivity.this);
+        d.setTitle("TableNumber");
+        d.setContentView(R.layout.table_number_dialog);
+        Button b1 = (Button) d.findViewById(R.id.tableBtnOk);
+        Button b2 = (Button) d.findViewById(R.id.tableBtnCancel);
+
+        final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPickerTable);
+        np.setMaxValue(10);
+        np.setMinValue(1);
+        np.setWrapSelectorWheel(false);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Log.d("feedLog", "Package Name : " + TableId);
+                TableId = valueOf(np.getValue());
+//                Toast.makeText(getApplicationContext(),String.valueOf(np.getValue()), Toast.LENGTH_LONG).show();
+
+
+                d.dismiss();
             }
         });
 
