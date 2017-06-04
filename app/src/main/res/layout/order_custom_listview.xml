@@ -39,33 +39,21 @@
                 android:text="Name" />
 
             <TextView
-                android:id="@+id/txt_description"
+                android:id="@+id/txt_total_per_price"
                 android:textSize="20dp"
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
-                android:text="description" />
+                android:text="total per price" />
 
             <TextView
                 android:layout_marginTop="5dp"
-                android:id="@+id/txt_price"
+                android:id="@+id/txt_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Price 10 B" />
+                android:text="amount" />
 
         </LinearLayout>
 
-
-
-            <TextView
-                android:layout_marginLeft="20dp"
-                android:id="@+id/ChooseItem"
-                android:layout_width="50dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="60dp"
-                android:background="#3495B5"
-                android:gravity="center"
-                android:textSize="18dp"
-                android:text="buy" />
 
 
 
